@@ -1,5 +1,7 @@
 Simple Comment
 ==============
+***UNDER DEVELOPING! DO NOT USE IN PRODUCTION!***
+
 A simple comment extension.
 
 Installation
@@ -28,4 +30,8 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \itsurka\simpleComment\AutoloadExample::widget(); ?>```
+<?php echo SimpleComment::widget([
+    'model' => $model,
+    'author' => $user,
+    'authorNameAttribute' => 'username'
+]); ?>```
