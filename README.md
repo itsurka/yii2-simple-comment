@@ -1,11 +1,14 @@
 Simple Comment
 ==============
+
 ***UNDER DEVELOPING! DO NOT USE IN PRODUCTION!***
 
 A simple comment extension.
 
 Installation
 ------------
+
+1) Download extension
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
@@ -23,6 +26,7 @@ or add
 
 to the require section of your `composer.json` file.
 
+2) Apply migrations from yii2-simple-comment/migrations folder.
 
 Usage
 -----

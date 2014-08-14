@@ -20,7 +20,7 @@ class CommentForm extends Model
         return [
             [['text'], 'required'],
             [['text'], 'string', 'max' => 255],
-            ['attachment', 'file', 'types' => 'jpg, jpeg, gif, png, txt, doc, docx, xml', 'uploadRequired' => false, 'minSize' => 10, 'maxSize' => 10 * 1024 * 1024],
+            [['attachment'], 'file', 'types' => 'jpg, jpeg, gif, png, txt, doc, docx, xml', 'skipOnEmpty' => true, 'minSize' => 10, 'maxSize' => 10 * 1024 * 1024],
         ];
     }
 

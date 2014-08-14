@@ -5,11 +5,6 @@
  */
 use itsurka\simpleComment\models\Comment;
 use yii\widgets\ListView;
-
-//echo '$var[]<pre>';
-//print_r($viewParams);
-//echo '</pre>';
-//exit;
 ?>
 
 <?php echo ListView::widget([
