@@ -52,9 +52,6 @@ class SimpleComment extends \yii\base\Widget
 
     public function init()
     {
-        ini_set('display_errors', 'On');
-        error_reporting(E_ALL);
-
         $this->validateInputParams();
     }
 
@@ -80,9 +77,9 @@ class SimpleComment extends \yii\base\Widget
     {
         return $this->renderFile(\Yii::getAlias('@simplecomment') . '/views/comments.php', [
             'query' => Comment::find()->where('relModelClass = :relModelClass AND relModelId = :relModelId', [
-                    'relModelClass' => get_class($this->model),
-                    'relModelId' => $this->model->id,
-                ]),
+                'relModelClass' => get_class($this->model),
+                'relModelId' => $this->model->id,
+            ]),
             'viewParams' => [
                 'author' => $this->author,
                 'authorNameAttribute' => $this->authorNameAttribute,
@@ -127,8 +124,13 @@ class SimpleComment extends \yii\base\Widget
     {
         $request = \Yii::$app->request;
 
-        if ($request->isPost && !is_null($request->post('cs-comment-form-submit'))) {
+        if ($request->getIsPost() && $request->post('cs-comment-form-submit') !== null) {
             $commentForm->attributes = $request->post('CommentForm');
+
+            echo '$var[]<pre>';
+            print_r($commentForm->attributes);
+            echo '</pre>';
+            exit;
 
             if ($commentForm->validate()) {
                 $comment = new Comment();
