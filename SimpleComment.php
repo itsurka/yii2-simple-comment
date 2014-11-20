@@ -127,11 +127,6 @@ class SimpleComment extends \yii\base\Widget
         if ($request->getIsPost() && $request->post('cs-comment-form-submit') !== null) {
             $commentForm->attributes = $request->post('CommentForm');
 
-            echo '$var[]<pre>';
-            print_r($commentForm->attributes);
-            echo '</pre>';
-            exit;
-
             if ($commentForm->validate()) {
                 $comment = new Comment();
                 $comment->relModelClass = get_class($this->model);
