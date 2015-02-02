@@ -34,8 +34,12 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?php echo SimpleComment::widget([
-    'model' => $model,
-    'author' => $user,
-    'authorNameAttribute' => 'username'
-]); ?>```
+<?= SimpleComment::widget([
+    'model'                => $model, // AR model for which will be displayed the comments widget.
+    'author'               => $user, // AR model - comments author.
+    'authorNameAttribute'  => 'username', // AR models name attribute.
+    'authorNameAttribute'  => 'avatarUrl', // Avatar URL. Use this or $authorAvatarFunction param.
+    'authorAvatarFunction' => 'getAvatarUrl', // To get avatar URL. Use this or $authorAvatarAttribute param.
+    'authorAvatarWidth'    => '100',
+    'authorAvatarHeight'   => '100',
+]) ?>```

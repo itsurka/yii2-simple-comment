@@ -18,30 +18,53 @@ require_once(\Yii::getAlias('@simplecomment') . '/models/CommentAttachment.php')
 class SimpleComment extends \yii\base\Widget
 {
     /**
-     * AR для которого будем отображать блок комментариев с формой
+     * AR model for which will be displayed the comments widget.
      *
      * @var ActiveRecord
      */
     public $model;
 
     /**
-     * AR автор комментария
+     * AR model - comments author.
      *
      * @var ActiveRecord
      */
     public $author;
 
     /**
-     * AR название свойство имени
+     * AR models name attribute.
      *
      * @var string
      */
     public $authorNameAttribute;
 
     /**
+     * Avatar URL. Use this or $authorAvatarFunction param.
+     *
      * @var string
      */
     public $authorAvatarAttribute;
+
+    /**
+     * To get avatar URL. Use this or $authorAvatarAttribute param.
+     *
+     * @var string
+     */
+    public $authorAvatarFunction;
+
+    /**
+     * Avatar pixels width.
+     *
+     * @var int
+     */
+    public $authorAvatarWidth = 10;
+
+    /**
+     * Avatar pixels height.
+     *
+     * @var int
+     */
+    public $authorAvatarHeight;
 
     /**
      * todo
@@ -68,7 +91,7 @@ class SimpleComment extends \yii\base\Widget
     private function _renderForm($commentForm)
     {
         return $this->renderFile(\Yii::getAlias('@simplecomment') . '/views/form.php', [
-            'model' => $this->model,
+            'model'       => $this->model,
             'commentForm' => $commentForm,
         ]);
     }
@@ -76,14 +99,17 @@ class SimpleComment extends \yii\base\Widget
     private function _renderComments()
     {
         return $this->renderFile(\Yii::getAlias('@simplecomment') . '/views/comments.php', [
-            'query' => Comment::find()->where('relModelClass = :relModelClass AND relModelId = :relModelId', [
+            'query'      => Comment::find()->where('relModelClass = :relModelClass AND relModelId = :relModelId', [
                 'relModelClass' => get_class($this->model),
-                'relModelId' => $this->model->id,
+                'relModelId'    => $this->model->id,
             ]),
             'viewParams' => [
-                'author' => $this->author,
-                'authorNameAttribute' => $this->authorNameAttribute,
+                'author'                => $this->author,
+                'authorNameAttribute'   => $this->authorNameAttribute,
                 'authorAvatarAttribute' => $this->authorAvatarAttribute,
+                'authorAvatarFunction'  => $this->authorAvatarFunction,
+                'authorAvatarWidth'     => $this->authorAvatarWidth !== null ? $this->authorAvatarWidth : null,
+                'authorAvatarHeight'    => $this->authorAvatarHeight !== null ? $this->authorAvatarHeight : null,
             ]
         ]);
     }

@@ -7,7 +7,8 @@
     "authors": [
         {
             "name": "Igor Tsurka",
-            "email": "turcaigor@gmail.com"
+            "email": "turcaigor@gmail.com",
+            "homepage": "http://itsurka.name/"
         }
     ],
     "autoload": {

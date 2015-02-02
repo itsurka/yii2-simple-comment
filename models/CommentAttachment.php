@@ -10,11 +10,11 @@ use Yii;
  *
  * @property integer $id
  * @property integer $commentId
- * @property string $fileName
- * @property string $fileExtension
- * @property string $filePath
- * @property string $fileUrl
- * @property string $createdDate
+ * @property string  $fileName
+ * @property string  $fileExtension
+ * @property string  $filePath
+ * @property string  $fileUrl
+ * @property string  $createdDate
  *
  * @property Comment $comment
  */
@@ -47,13 +47,13 @@ class CommentAttachment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'commentId' => Yii::t('app', 'Comment ID'),
-            'fileName' => Yii::t('app', 'File Name'),
+            'id'            => Yii::t('app', 'ID'),
+            'commentId'     => Yii::t('app', 'Comment ID'),
+            'fileName'      => Yii::t('app', 'File Name'),
             'fileExtension' => Yii::t('app', 'File Extension'),
-            'filePath' => Yii::t('app', 'File Path'),
-            'fileUrl' => Yii::t('app', 'File Url'),
-            'createdDate' => Yii::t('app', 'Created Date'),
+            'filePath'      => Yii::t('app', 'File Path'),
+            'fileUrl'       => Yii::t('app', 'File Url'),
+            'createdDate'   => Yii::t('app', 'Created Date'),
         ];
     }
 

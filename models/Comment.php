@@ -8,11 +8,11 @@ use Yii;
 /**
  * This is the model class for table "sc_comment".
  *
- * @property integer $id
- * @property string $relModelClass
- * @property integer $relModelId
- * @property string $text
- * @property string $createdDate
+ * @property integer             $id
+ * @property string              $relModelClass
+ * @property integer             $relModelId
+ * @property string              $text
+ * @property string              $createdDate
  *
  * @property CommentAttachment[] $attachments
  */
@@ -46,11 +46,11 @@ class Comment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
+            'id'            => Yii::t('app', 'ID'),
             'relModelClass' => Yii::t('app', 'Rel Model Class'),
-            'relModelId' => Yii::t('app', 'Rel Model ID'),
-            'text' => Yii::t('app', 'Text'),
-            'createdDate' => Yii::t('app', 'Created Date'),
+            'relModelId'    => Yii::t('app', 'Rel Model ID'),
+            'text'          => Yii::t('app', 'Text'),
+            'createdDate'   => Yii::t('app', 'Created Date'),
         ];
     }
 

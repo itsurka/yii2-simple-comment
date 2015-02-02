@@ -27,7 +27,7 @@ class CommentForm extends Model
     public function attributeLabels()
     {
         return [
-            'text' => 'Текст',
+            'text'       => 'Текст',
             'attachment' => 'Файл',
         ];
     }
